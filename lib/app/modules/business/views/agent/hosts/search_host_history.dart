@@ -6,7 +6,7 @@ import 'package:doyel_live/app/modules/profile/views/broadcasting_histories.dart
 import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 
 class SearchHostHistory extends StatefulWidget {
-  const SearchHostHistory({Key? key, this.agentUserId}) : super(key: key);
+  const SearchHostHistory({super.key, this.agentUserId});
   final int? agentUserId;
 
   @override

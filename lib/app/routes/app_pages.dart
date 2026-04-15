@@ -6,7 +6,6 @@ import '../modules/auth/views/auth_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/live_streaming/bindings/live_streaming_binding.dart';
-import '../modules/live_streaming/views/broadcast/live_streaming_view.dart';
 import '../modules/messenger/bindings/messenger_binding.dart';
 import '../modules/messenger/views/messenger_view.dart';
 import '../modules/nav/bindings/nav_binding.dart';

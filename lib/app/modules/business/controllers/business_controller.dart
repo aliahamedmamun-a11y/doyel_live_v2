@@ -52,11 +52,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kModeratorRequestRetrieveUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingModeratorRequest.value = false;
@@ -74,11 +76,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.post(
         kModeratorRequestCreateUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingModeratorRequest.value = false;
@@ -127,11 +131,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.delete(
         kModeratorRequestDeleteUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingModeratorRequest.value = false;
@@ -164,11 +170,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kResellerRequestRetrieveUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingResellerRequest.value = false;
@@ -186,11 +194,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.post(
         kResellerRequestCreateUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingResellerRequest.value = false;
@@ -239,11 +249,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.delete(
         kResellerRequestDeleteUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingResellerRequest.value = false;
@@ -276,11 +288,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kResellerRechargeHistoryListUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingResellerRechargeHistoryList.value = false;
@@ -293,8 +307,10 @@ class BusinessController extends GetxController {
     }
   }
 
-  void tryToRechargeResellerToClient(
-      {required int customerId, required int diamonds}) async {
+  void tryToRechargeResellerToClient({
+    required int customerId,
+    required int diamonds,
+  }) async {
     if (diamonds > authController.profile.value.diamonds!) {
       Get.snackbar(
         'Failed',
@@ -307,26 +323,27 @@ class BusinessController extends GetxController {
       return;
     }
     loadingResellerRecharge.value = true;
-    dynamic data = {
-      'customer_id': customerId,
-      'diamonds': diamonds,
-    };
+    dynamic data = {'customer_id': customerId, 'diamonds': diamonds};
     var dio = Dio();
     try {
       final response = await dio.post(
         kResellerRechargeCreateUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
         data: data,
       );
       int? statusCode = response.statusCode;
       loadingResellerRecharge.value = false;
       if (statusCode == 201) {
         resellerRechargeHistoryList.insert(
-            0, response.data['reseller_history']);
+          0,
+          response.data['reseller_history'],
+        );
         Get.snackbar(
           'Success',
           "You have recharged $diamonds daimonds",
@@ -335,7 +352,7 @@ class BusinessController extends GetxController {
           snackPosition: SnackPosition.BOTTOM,
         );
         final ProfileController profileController = Get.find();
-        dynamic profile = profileController.searchedProfile.value;
+        dynamic profile = profileController.searchedProfile;
         profile['diamonds'] += diamonds;
         profileController.searchedProfile.value = profile;
       } else if (statusCode == 204) {
@@ -360,19 +377,22 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.delete(
         kResellerRechargeHistoryDeletetUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'X-Api-Key': DRF_API_KEY,
-          'Authorization': 'Token ${authController.token.value}',
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'X-Api-Key': DRF_API_KEY,
+            'Authorization': 'Token ${authController.token.value}',
+          },
+        ),
         data: data,
       );
       int? statusCode = response.statusCode;
       loadingResellerRechargeHistoryList.value = false;
 
       if (statusCode == 200) {
-        resellerRechargeHistoryList
-            .removeWhere((element) => element['id'] == historyId);
+        resellerRechargeHistoryList.removeWhere(
+          (element) => element['id'] == historyId,
+        );
         Get.snackbar(
           'Success',
           "History removed successfully",
@@ -394,22 +414,23 @@ class BusinessController extends GetxController {
     }
   }
 
-  void tryToSendHostRequest(
-      {required int agentId, String liveType = 'video'}) async {
-    dynamic data = {
-      'agent_id': agentId,
-      'live_type': liveType,
-    };
+  void tryToSendHostRequest({
+    required int agentId,
+    String liveType = 'video',
+  }) async {
+    dynamic data = {'agent_id': agentId, 'live_type': liveType};
     loadingHostRequest.value = true;
     var dio = Dio();
     try {
       final response = await dio.post(
         kHostRequestCreateUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
         data: data,
       );
       int? statusCode = response.statusCode;
@@ -467,11 +488,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kHostRequestRetrieveUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingHostRequest.value = false;
@@ -483,21 +506,20 @@ class BusinessController extends GetxController {
     }
   }
 
-  void tryToSearchHostRequest({
-    required int userId,
-    int? agentUserId,
-  }) async {
+  void tryToSearchHostRequest({required int userId, int? agentUserId}) async {
     loadingHostRequestSearch.value = true;
     final AuthController authController = Get.find();
     var dio = Dio();
     try {
       final response = await dio.get(
         kSearchHostRequestRetrieveUrl(userId),
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
         queryParameters: {'agent_uid': agentUserId ?? 0},
       );
       int? statusCode = response.statusCode;
@@ -510,22 +532,20 @@ class BusinessController extends GetxController {
     }
   }
 
-  void loadHostRequestList({
-    int? agentUserId,
-  }) async {
+  void loadHostRequestList({int? agentUserId}) async {
     loadingHostRequestList.value = true;
     var dio = Dio();
     try {
       final response = await dio.get(
         kHostRequestListUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
-        queryParameters: {
-          'agent_uid': agentUserId ?? 0,
-        },
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
+        queryParameters: {'agent_uid': agentUserId ?? 0},
       );
       int? statusCode = response.statusCode;
       loadingHostRequestList.value = false;
@@ -538,9 +558,7 @@ class BusinessController extends GetxController {
     }
   }
 
-  void loadHostList({
-    int? agentUserId,
-  }) async {
+  void loadHostList({int? agentUserId}) async {
     hostsGiftCoins.value = 0;
     hostsAudioGiftCoins.value = 0;
     hostsVideoGiftCoins.value = 0;
@@ -551,11 +569,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kHostListeUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
         queryParameters: {'agent_uid': agentUserId ?? 0},
       );
       int? statusCode = response.statusCode;
@@ -575,31 +595,28 @@ class BusinessController extends GetxController {
     }
   }
 
-  void tryToConfirmHostRequest({
-    required int userId,
-    int? agentUserId,
-  }) async {
-    dynamic data = {
-      'host_uid': userId,
-      'agent_uid': agentUserId ?? 0,
-    };
+  void tryToConfirmHostRequest({required int userId, int? agentUserId}) async {
+    dynamic data = {'host_uid': userId, 'agent_uid': agentUserId ?? 0};
 
     loadingHostRequestConfirmation.value = true;
     var dio = Dio();
     try {
       final response = await dio.post(
         kConfirmHostRequestCreateUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
         data: data,
       );
       int? statusCode = response.statusCode;
       loadingHostRequestConfirmation.value = false;
       hostRequestList.removeWhere(
-          (element) => element['profile']['user']['uid'] == userId);
+        (element) => element['profile']['user']['uid'] == userId,
+      );
       if (statusCode == 201) {
         Get.snackbar(
           'Success',
@@ -638,25 +655,25 @@ class BusinessController extends GetxController {
     }
   }
 
-  void tryToRemoveHost(
-      {required int userId,
-      int? agentUserId,
-      required dynamic profileData}) async {
-    dynamic data = {
-      'host_uid': userId,
-      'agent_uid': agentUserId ?? 0,
-    };
+  void tryToRemoveHost({
+    required int userId,
+    int? agentUserId,
+    required dynamic profileData,
+  }) async {
+    dynamic data = {'host_uid': userId, 'agent_uid': agentUserId ?? 0};
 
     loadingHostList.value = true;
     var dio = Dio();
     try {
       final response = await dio.delete(
         kHostRemoveUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
         data: data,
       );
       int? statusCode = response.statusCode;
@@ -664,7 +681,8 @@ class BusinessController extends GetxController {
 
       if (statusCode == 200) {
         hostList.removeWhere(
-            (element) => element['profile']['user']['uid'] == userId);
+          (element) => element['profile']['user']['uid'] == userId,
+        );
         hostsCount.value -= 1;
         hostsGiftCoins.value -= profileData['diamonds'] as int;
         if (profileData['is_allow_video_live']) {
@@ -699,11 +717,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.delete(
         kHostRequestDeleteUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingHostRequest.value = false;
@@ -735,11 +755,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kAgentForHostRetrieveUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       if (statusCode == 200) {
@@ -756,11 +778,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kManualAgentListUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingAgentList.value = false;
@@ -780,11 +804,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kAgentListUrl,
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingAgentList.value = false;
@@ -805,11 +831,13 @@ class BusinessController extends GetxController {
     try {
       final response = await dio.get(
         kSearchAgentRetrieveUrl(userId),
-        options: Options(headers: {
-          'accept': '*/*',
-          'Authorization': 'Token ${authController.token.value}',
-          'X-Api-Key': DRF_API_KEY,
-        }),
+        options: Options(
+          headers: {
+            'accept': '*/*',
+            'Authorization': 'Token ${authController.token.value}',
+            'X-Api-Key': DRF_API_KEY,
+          },
+        ),
       );
       int? statusCode = response.statusCode;
       loadingAgentSearch.value = false;

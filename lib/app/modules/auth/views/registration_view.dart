@@ -1,4 +1,3 @@
-import 'package:doyel_live/app/routes/app_pages.dart';
 import 'package:doyel_live/app/widgets/country_phone_code_widget.dart';
 import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,7 @@ import 'package:get/get.dart';
 import '../controllers/auth_controller.dart';
 
 class RegistrationView extends StatefulWidget {
-  const RegistrationView({Key? key}) : super(key: key);
+  const RegistrationView({super.key});
 
   @override
   State<RegistrationView> createState() => _RegistrationViewState();

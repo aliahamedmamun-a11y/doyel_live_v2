@@ -10,7 +10,7 @@ import 'package:doyel_live/app/modules/auth/controllers/auth_controller.dart';
 import 'package:doyel_live/app/modules/profile/controllers/profile_controller.dart';
 
 class BlockListView extends StatefulWidget {
-  const BlockListView({Key? key}) : super(key: key);
+  const BlockListView({super.key});
 
   @override
   _BlockListViewState createState() => _BlockListViewState();
@@ -82,12 +82,12 @@ class _BlockListViewState extends State<BlockListView> {
 
 class BlockItem extends StatelessWidget {
   const BlockItem({
-    Key? key,
+    super.key,
     this.data,
     required this.profileController,
     required this.authController,
     // required this.liveStreamingFirebaseStuffs,
-  }) : super(key: key);
+  });
   final dynamic data;
   final ProfileController profileController;
   final AuthController authController;

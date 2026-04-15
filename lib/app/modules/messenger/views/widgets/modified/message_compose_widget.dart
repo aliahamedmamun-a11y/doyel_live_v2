@@ -6,13 +6,13 @@ import 'package:doyel_live/app/modules/messenger/controllers/messenger_controlle
 
 class MessagesCompose extends StatefulWidget {
   const MessagesCompose({
-    Key? key,
+    super.key,
     required this.chatId,
     required this.peerUserId,
     required this.peerUserFullName,
     required this.peerUserProfileImage,
     required this.onUpdateChatMessageWithWebSocketClient,
-  }) : super(key: key);
+  });
   final String? chatId, peerUserFullName, peerUserProfileImage;
   final int peerUserId;
   final Function onUpdateChatMessageWithWebSocketClient;

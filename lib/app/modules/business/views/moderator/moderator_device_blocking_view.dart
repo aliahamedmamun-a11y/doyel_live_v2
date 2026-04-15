@@ -6,7 +6,7 @@ import 'package:doyel_live/app/modules/business/controllers/devices_controller.d
 import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 
 class ModeratorDeviceBlockingView extends StatefulWidget {
-  const ModeratorDeviceBlockingView({Key? key}) : super(key: key);
+  const ModeratorDeviceBlockingView({super.key});
 
   @override
   State<ModeratorDeviceBlockingView> createState() =>

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class NoVideoWidget extends StatelessWidget {
   //
-  const NoVideoWidget({Key? key, required this.data}) : super(key: key);
+  const NoVideoWidget({super.key, required this.data});
   final dynamic data;
 
   // @override

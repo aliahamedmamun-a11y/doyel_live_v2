@@ -46,9 +46,7 @@ class _VIPPackageViewState extends State<VIPPackageView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 8),
-                      _vvipOrVipPackageController
-                                  .purchasedVipPackage
-                                  .value['id'] !=
+                      _vvipOrVipPackageController.purchasedVipPackage['id'] !=
                               null
                           ? Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,13 +63,10 @@ class _VIPPackageViewState extends State<VIPPackageView> {
                                 ),
                                 gifItem(
                                   data: _vvipOrVipPackageController
-                                      .purchasedVipPackage
-                                      .value['vip_package'],
+                                      .purchasedVipPackage['vip_package'],
                                   isPurchased: true,
-                                  expirationDateTime:
-                                      _vvipOrVipPackageController
-                                          .purchasedVipPackage
-                                          .value['expired_datetime'],
+                                  expirationDateTime: _vvipOrVipPackageController
+                                      .purchasedVipPackage['expired_datetime'],
                                 ),
                                 const SizedBox(height: 8),
                               ],
@@ -165,8 +160,7 @@ class _VIPPackageViewState extends State<VIPPackageView> {
                               shrinkWrap: true,
                               data:
                                   _vvipOrVipPackageController
-                                      .vipPackageOrderingInfo
-                                      .value['context'] ??
+                                      .vipPackageOrderingInfo['context'] ??
                                   'No contact info',
                             ),
                           ),

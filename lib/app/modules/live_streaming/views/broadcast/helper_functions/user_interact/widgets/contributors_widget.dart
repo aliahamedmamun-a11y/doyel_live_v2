@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doyel_live/app/modules/live_streaming/controllers/live_streaming_controller.dart';
@@ -9,11 +8,10 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ContributorsWidget extends StatefulWidget {
   const ContributorsWidget(
-      {Key? key,
+      {super.key,
       required this.streamingController,
       required this.data,
-      required this.onUpdateAction})
-      : super(key: key);
+      required this.onUpdateAction});
   final LiveStreamingController streamingController;
   final Function onUpdateAction;
   final dynamic data;
@@ -83,11 +81,10 @@ class _ContributorsWidgetState extends State<ContributorsWidget> {
 
 class _contributorItem extends StatelessWidget {
   const _contributorItem({
-    Key? key,
     required this.serialNumber,
     required this.data,
     required this.onUpdateAction,
-  }) : super(key: key);
+  });
   final int serialNumber;
   final dynamic data;
   final Function? onUpdateAction;

@@ -349,12 +349,11 @@ void showCallWaitingBottomSheet({
 
 class _callRequestItem extends StatelessWidget {
   const _callRequestItem({
-    Key? key,
     required this.streamingController,
     this.data,
     required this.onUpdateAction,
     required this.authController,
-  }) : super(key: key);
+  });
 
   final LiveStreamingController streamingController;
   final dynamic data;
@@ -500,12 +499,11 @@ class _callRequestItem extends StatelessWidget {
 
 class _guestLiveItem extends StatelessWidget {
   const _guestLiveItem({
-    Key? key,
     required this.streamingController,
     this.data,
     required this.onUpdateAction,
     required this.authController,
-  }) : super(key: key);
+  });
   final LiveStreamingController streamingController;
   final dynamic data;
   final Function onUpdateAction;
@@ -683,10 +681,10 @@ class _guestLiveItem extends StatelessWidget {
 
 class ViewerWidget extends StatelessWidget {
   const ViewerWidget({
-    Key? key,
+    super.key,
     required this.onUpdateAction,
     required this.streamingController,
-  }) : super(key: key);
+  });
 
   final LiveStreamingController streamingController;
   final Function onUpdateAction;
@@ -729,11 +727,10 @@ class ViewerWidget extends StatelessWidget {
 
 class _viewerItem extends StatelessWidget {
   const _viewerItem({
-    Key? key,
     this.data,
     this.onUpdateAction,
     required this.index,
-  }) : super(key: key);
+  });
   final dynamic data;
   final Function? onUpdateAction;
   final int index;

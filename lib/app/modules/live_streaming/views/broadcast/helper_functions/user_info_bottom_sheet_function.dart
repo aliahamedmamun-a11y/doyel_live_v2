@@ -21,7 +21,7 @@ void showUserInfoBottomSheet({
     profileController.fetchProfileForUserInfo(userId: data['uid']);
   });
 
-  Widget _messageWidget({required dynamic data}) {
+  Widget messageWidget({required dynamic data}) {
     dynamic profile = {
       'profile_image': data['profile_image'],
       'full_name': data['full_name'],
@@ -460,7 +460,7 @@ void showUserInfoBottomSheet({
                                 )
                               : Container(),
 
-                          _messageWidget(data: data),
+                          messageWidget(data: data),
                         ],
                       ),
                     ),
@@ -553,7 +553,7 @@ void showUserInfoBottomSheet({
               ),
             );
           }
-          return Container(
+          return SizedBox(
             height: data['uid'] != authController.profile.value.user!.uid
                 ? 260
                 : 160,

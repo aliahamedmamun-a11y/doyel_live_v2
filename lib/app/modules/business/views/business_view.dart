@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/business_controller.dart';
 
 class BusinessView extends GetView<BusinessController> {
-  const BusinessView({Key? key}) : super(key: key);
+  const BusinessView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

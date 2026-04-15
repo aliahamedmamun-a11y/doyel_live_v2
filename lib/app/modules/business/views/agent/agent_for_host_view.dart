@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class AgentForHostView extends StatefulWidget {
-  AgentForHostView({Key? key}) : super(key: key);
+  const AgentForHostView({super.key});
 
   @override
   State<AgentForHostView> createState() => _AgentForHostViewState();

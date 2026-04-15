@@ -8,7 +8,7 @@ import 'package:doyel_live/app/modules/business/views/agent/hosts/hosts_view.dar
 import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 
 class HostRequstView extends StatefulWidget {
-  const HostRequstView({Key? key}) : super(key: key);
+  const HostRequstView({super.key});
 
   @override
   _HostRequstViewState createState() => _HostRequstViewState();
@@ -49,7 +49,7 @@ class _HostRequstViewState extends State<HostRequstView> {
                 return _businessController.loadingAgentList.value ||
                         _businessController.loadingHostRequest.value
                     ? const SpinKitCircle(color: Colors.red)
-                    : _businessController.hostRequestedData.value['id'] != null
+                    : _businessController.hostRequestedData['id'] != null
                     ? Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -59,7 +59,7 @@ class _HostRequstViewState extends State<HostRequstView> {
                               child: Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Text(
-                                  "Your host request (${_businessController.hostRequestedData.value['is_allow_video_live'] ? 'Video Live' : 'Audio Live'}) is pending. Please wait for authority confirmation.\n\nDatetime: ${DateFormat.yMEd().add_jms().format(DateTime.parse(_businessController.hostRequestedData.value['datetime']).toLocal())}",
+                                  "Your host request (${_businessController.hostRequestedData['is_allow_video_live'] ? 'Video Live' : 'Audio Live'}) is pending. Please wait for authority confirmation.\n\nDatetime: ${DateFormat.yMEd().add_jms().format(DateTime.parse(_businessController.hostRequestedData['datetime']).toLocal())}",
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     color: Colors.orange,
@@ -171,8 +171,7 @@ class _HostRequstViewState extends State<HostRequstView> {
                                 return const SpinKitCircle(color: Colors.red);
                               }
                               if (_businessController
-                                      .searchedAgentData
-                                      .value['user_id'] ==
+                                      .searchedAgentData['user_id'] ==
                                   null) {
                                 return Container();
                               }
@@ -205,15 +204,14 @@ class _HostRequstViewState extends State<HostRequstView> {
                                           Get.to(
                                             () => HostsView(
                                               agentUserId: _businessController
-                                                  .searchedAgentData
-                                                  .value['user_id'],
+                                                  .searchedAgentData['user_id'],
                                             ),
                                           );
                                           return;
                                         }
                                         Get.defaultDialog(
                                           title:
-                                              'Agent User ID: ${_businessController.searchedAgentData.value['user_id']}',
+                                              'Agent User ID: ${_businessController.searchedAgentData['user_id']}',
                                           content: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.stretch,
@@ -233,8 +231,7 @@ class _HostRequstViewState extends State<HostRequstView> {
                                                   _businessController
                                                       .tryToSendHostRequest(
                                                         agentId: _businessController
-                                                            .searchedAgentData
-                                                            .value['user_id'],
+                                                            .searchedAgentData['user_id'],
                                                         liveType: 'video',
                                                       );
                                                   Get.back();
@@ -268,7 +265,7 @@ class _HostRequstViewState extends State<HostRequstView> {
                                                   'Agent User ID: ${_businessController.searchedAgentData.value['user_id']}',
                                                 ),
                                                 Text(
-                                                  'Name: ${_businessController.searchedAgentData.value['agent_name']}',
+                                                  'Name: ${_businessController.searchedAgentData['agent_name']}',
                                                 ),
                                               ],
                                             ),

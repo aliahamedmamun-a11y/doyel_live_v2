@@ -1,11 +1,9 @@
-import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class SenderMessageCard extends StatefulWidget {
   const SenderMessageCard(this.fileName, this.msgType, this.msg, this.time,
-      {Key? key})
-      : super(key: key);
+      {super.key});
 
   final String msg;
   final String time;

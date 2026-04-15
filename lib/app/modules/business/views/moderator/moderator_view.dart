@@ -7,6 +7,8 @@ import 'package:doyel_live/app/modules/business/views/moderator/moderator_device
 class ModeratorView extends StatelessWidget {
   final DevicesController _devicesController = Get.put(DevicesController());
 
+  ModeratorView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

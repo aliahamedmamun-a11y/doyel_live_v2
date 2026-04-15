@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import '../controllers/messenger_controller.dart';
 
 class MessengerView extends GetView<MessengerController> {
-  const MessengerView({Key? key}) : super(key: key);
+  const MessengerView({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(

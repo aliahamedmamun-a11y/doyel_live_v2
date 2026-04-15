@@ -6,13 +6,12 @@ class MessageBubble extends StatelessWidget {
   final int senderId, uid;
   final dynamic timestamp;
   const MessageBubble(
-      {Key? key,
+      {super.key,
       required this.name,
       required this.text,
       required this.senderId,
       required this.uid,
-      required this.timestamp})
-      : super(key: key);
+      required this.timestamp});
 
   @override
   Widget build(BuildContext context) {

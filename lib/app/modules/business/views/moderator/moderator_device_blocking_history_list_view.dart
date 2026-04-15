@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:doyel_live/app/modules/business/controllers/devices_controller.dart';
 
 class ModeratorDeviceBlockingHistoryListView extends StatefulWidget {
-  const ModeratorDeviceBlockingHistoryListView({Key? key}) : super(key: key);
+  const ModeratorDeviceBlockingHistoryListView({super.key});
 
   @override
   _ModeratorDeviceBlockingHistoryListViewState createState() =>

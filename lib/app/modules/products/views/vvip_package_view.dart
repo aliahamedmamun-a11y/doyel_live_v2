@@ -47,9 +47,7 @@ class _VVIPPackageViewState extends State<VVIPPackageView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 8),
-                      _vvipOrVipPackageController
-                                  .purchasedVVipPackage
-                                  .value['id'] !=
+                      _vvipOrVipPackageController.purchasedVVipPackage['id'] !=
                               null
                           ? Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,13 +64,10 @@ class _VVIPPackageViewState extends State<VVIPPackageView> {
                                 ),
                                 gifItem(
                                   data: _vvipOrVipPackageController
-                                      .purchasedVVipPackage
-                                      .value['vvip_package'],
+                                      .purchasedVVipPackage['vvip_package'],
                                   isPurchased: true,
-                                  expirationDateTime:
-                                      _vvipOrVipPackageController
-                                          .purchasedVVipPackage
-                                          .value['expired_datetime'],
+                                  expirationDateTime: _vvipOrVipPackageController
+                                      .purchasedVVipPackage['expired_datetime'],
                                 ),
                                 const SizedBox(height: 8),
                               ],

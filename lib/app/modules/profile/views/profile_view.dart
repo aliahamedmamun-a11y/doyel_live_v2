@@ -23,7 +23,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../controllers/profile_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  ProfileView({Key? key}) : super(key: key);
+  ProfileView({super.key});
   final AuthController _authController = Get.find();
   @override
   Widget build(BuildContext context) {

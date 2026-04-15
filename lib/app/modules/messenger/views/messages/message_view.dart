@@ -13,12 +13,12 @@ class Choice {
   final IconData icon;
 }
 
-const List<Choice> choices = const <Choice>[
-  const Choice(title: 'Block', icon: Icons.block),
+const List<Choice> choices = <Choice>[
+  Choice(title: 'Block', icon: Icons.block),
 ];
 
 class MessagesView extends StatefulWidget {
-  MessagesView({
+  const MessagesView({
     super.key,
     required this.profile,
     required this.chatId,

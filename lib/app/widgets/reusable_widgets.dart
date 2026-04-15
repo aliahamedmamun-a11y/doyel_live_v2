@@ -9,9 +9,9 @@ Widget rPrimaryTextButton(
         required onPressed}) =>
     TextButton(
       style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all<Color>(buttonTextColor),
-        backgroundColor: MaterialStateProperty.all<Color>(backgroundColor),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+        foregroundColor: WidgetStateProperty.all<Color>(buttonTextColor),
+        backgroundColor: WidgetStateProperty.all<Color>(backgroundColor),
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         )),

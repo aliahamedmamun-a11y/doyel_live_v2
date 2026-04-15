@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:doyel_live/app/modules/business/controllers/business_controller.dart';
 
 class ResellerRechargeHistoryListView extends StatefulWidget {
-  const ResellerRechargeHistoryListView({Key? key}) : super(key: key);
+  const ResellerRechargeHistoryListView({super.key});
 
   @override
   _ResellerRechargeHistoryListViewState createState() =>

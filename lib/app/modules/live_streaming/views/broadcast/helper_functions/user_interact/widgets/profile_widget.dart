@@ -8,13 +8,13 @@ import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({
-    Key? key,
+    super.key,
     required this.data,
     required this.onUpdateAction,
     required this.streamingController,
     required this.authController,
     required this.profileController,
-  }) : super(key: key);
+  });
   final dynamic data;
   final Function onUpdateAction;
   final LiveStreamingController streamingController;
@@ -30,7 +30,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
   void initState() {
     super.initState();
 
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       // executes after build
       widget.profileController.fetchProfileForHost(userId: widget.data['uid']);
     });

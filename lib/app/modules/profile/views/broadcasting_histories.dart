@@ -74,7 +74,7 @@ class BroadcastingHistoriesView extends GetView {
 }
 
 class HistoryItem extends StatelessWidget {
-  const HistoryItem({Key? key, this.data}) : super(key: key);
+  const HistoryItem({super.key, this.data});
   final dynamic data;
 
   @override

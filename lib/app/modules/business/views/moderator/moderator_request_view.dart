@@ -6,7 +6,7 @@ import 'package:doyel_live/app/modules/business/controllers/business_controller.
 import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 
 class ModeratorRequestView extends StatefulWidget {
-  const ModeratorRequestView({Key? key}) : super(key: key);
+  const ModeratorRequestView({super.key});
 
   @override
   _ModeratorRequestViewState createState() => _ModeratorRequestViewState();
@@ -36,8 +36,7 @@ class _ModeratorRequestViewState extends State<ModeratorRequestView> {
               Obx(() {
                 return _businessController.loadingModeratorRequest.value
                     ? const SpinKitCircle(color: Colors.red)
-                    : _businessController.moderatorRequestedData.value['id'] !=
-                          null
+                    : _businessController.moderatorRequestedData['id'] != null
                     ? Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(

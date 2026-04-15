@@ -28,7 +28,7 @@ import 'package:get/get.dart';
 import '../controllers/nav_controller.dart';
 
 class NavView extends StatefulWidget {
-  NavView({Key? key}) : super(key: key);
+  const NavView({super.key});
 
   @override
   State<NavView> createState() => _NavViewState();

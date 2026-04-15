@@ -84,8 +84,8 @@ class RemoteParticipantWidget extends ParticipantWidget {
     this.videoTrack,
     this.isScreenShare,
     this.data, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   State<StatefulWidget> createState() => _RemoteParticipantWidgetState();
@@ -349,8 +349,8 @@ class RemoteTrackPublicationMenuWidget extends StatelessWidget {
   const RemoteTrackPublicationMenuWidget({
     required this.pub,
     required this.icon,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Material(

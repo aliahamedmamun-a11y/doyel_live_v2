@@ -24,8 +24,8 @@ class ParticipantInfoWidget extends StatelessWidget {
     this.audioAvailable = true,
     this.connectionQuality = ConnectionQuality.unknown,
     this.isScreenShare = false,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) => Container(

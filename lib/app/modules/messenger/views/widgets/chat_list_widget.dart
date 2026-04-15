@@ -8,7 +8,7 @@ import 'package:doyel_live/app/modules/messenger/controllers/messenger_controlle
 import 'package:doyel_live/app/modules/messenger/views/messages/message_view.dart';
 
 class ChatListWidget extends StatefulWidget {
-  const ChatListWidget({Key? key}) : super(key: key);
+  const ChatListWidget({super.key});
 
   @override
   _ChatListWidgetState createState() => _ChatListWidgetState();
@@ -300,7 +300,7 @@ Widget chatItem({
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '$peerUsername',
+                  peerUsername,
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                     fontSize: 12,

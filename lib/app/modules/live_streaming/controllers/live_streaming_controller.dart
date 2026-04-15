@@ -241,7 +241,7 @@ class LiveStreamingController extends GetxController {
     } else if (Platform.isIOS) {
       IosDeviceInfo iosDeviceInfo = await deviceInfo.iosInfo;
       // uniqueDeviceId = iosDeviceInfo.identifierForVendor!;
-      deviceName = iosDeviceInfo.utsname.machine!; // e.g. "iPod7,1"
+      deviceName = iosDeviceInfo.utsname.machine; // e.g. "iPod7,1"
     }
     deviceName = deviceName.replaceAll(' ', '_');
 

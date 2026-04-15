@@ -5,6 +5,8 @@ import 'package:doyel_live/app/modules/business/views/reseller/reseller_recharge
 import 'package:get/get.dart';
 
 class ResellerView extends StatefulWidget {
+  const ResellerView({super.key});
+
   @override
   State<ResellerView> createState() => _ResellerViewState();
 }

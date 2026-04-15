@@ -16,10 +16,10 @@ import 'package:web_socket_client/web_socket_client.dart';
 
 class MessagesList extends StatefulWidget {
   const MessagesList({
-    Key? key,
+    super.key,
     required this.chatId,
     required this.profile,
-  }) : super(key: key);
+  });
   final String chatId;
   final dynamic profile;
 

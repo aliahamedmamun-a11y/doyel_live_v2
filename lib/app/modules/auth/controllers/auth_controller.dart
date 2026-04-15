@@ -44,15 +44,7 @@ class AuthController extends GetxController {
     });
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void setCountryPicked(Country pickedCountry) {
     country.value = pickedCountry;

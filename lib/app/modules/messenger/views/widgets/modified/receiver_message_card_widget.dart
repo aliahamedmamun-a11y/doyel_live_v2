@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class ReceiverMessageCard extends StatefulWidget {
   const ReceiverMessageCard(this.fileName, this.msgType, this.msg, this.time,
-      {Key? key})
-      : super(key: key);
+      {super.key});
   final String msg;
   final String time;
   final String msgType;

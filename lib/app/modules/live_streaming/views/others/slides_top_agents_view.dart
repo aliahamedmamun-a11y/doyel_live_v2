@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SlidesTopAgentsView extends StatefulWidget {
-  const SlidesTopAgentsView({Key? key}) : super(key: key);
+  const SlidesTopAgentsView({super.key});
 
   @override
   _SlidesTopAgentsViewState createState() => _SlidesTopAgentsViewState();

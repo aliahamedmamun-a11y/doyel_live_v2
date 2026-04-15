@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomTabBar extends StatelessWidget {
   final List<IconData> icons;
@@ -8,12 +7,12 @@ class CustomTabBar extends StatelessWidget {
   final bool isBottomIndicator;
 
   const CustomTabBar({
-    Key? key,
+    super.key,
     required this.icons,
     required this.selectedIndex,
     required this.onTap,
     this.isBottomIndicator = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

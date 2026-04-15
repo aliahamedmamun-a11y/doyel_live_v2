@@ -8,9 +8,6 @@ import 'package:doyel_live/app/utils/api_endpoints.dart';
 import 'package:doyel_live/app/utils/drf_api_key.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide FormData, MultipartFile;
-import 'package:doyel_live/app/modules/auth/controllers/auth_controller.dart';
-import 'package:doyel_live/app/utils/api_endpoints.dart';
-import 'package:doyel_live/app/utils/drf_api_key.dart';
 
 class ProfileController extends GetxController {
   final listLoading = false.obs;

@@ -6,7 +6,7 @@ import 'package:doyel_live/app/modules/auth/controllers/auth_controller.dart';
 import 'package:doyel_live/app/modules/business/controllers/business_controller.dart';
 
 class HostListView extends StatefulWidget {
-  const HostListView({Key? key, this.agentUserId}) : super(key: key);
+  const HostListView({super.key, this.agentUserId});
   final int? agentUserId;
 
   @override

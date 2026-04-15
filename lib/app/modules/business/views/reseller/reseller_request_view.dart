@@ -6,7 +6,7 @@ import 'package:doyel_live/app/modules/business/controllers/business_controller.
 import 'package:doyel_live/app/widgets/reusable_widgets.dart';
 
 class ResellerRequestView extends StatefulWidget {
-  const ResellerRequestView({Key? key}) : super(key: key);
+  const ResellerRequestView({super.key});
 
   @override
   _ResellerRequestViewState createState() => _ResellerRequestViewState();
@@ -36,8 +36,7 @@ class _ResellerRequestViewState extends State<ResellerRequestView> {
               Obx(() {
                 return _businessController.loadingResellerRequest.value
                     ? const SpinKitCircle(color: Colors.red)
-                    : _businessController.resellerRequestedData.value['id'] !=
-                          null
+                    : _businessController.resellerRequestedData['id'] != null
                     ? Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(
@@ -47,7 +46,7 @@ class _ResellerRequestViewState extends State<ResellerRequestView> {
                               child: Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Text(
-                                  "Your Reseller request is pending. Please wait for authority confirmation.\n\nDatetime: ${DateFormat.yMEd().add_jms().format(DateTime.parse(_businessController.resellerRequestedData.value['datetime']).toLocal())}",
+                                  "Your Reseller request is pending. Please wait for authority confirmation.\n\nDatetime: ${DateFormat.yMEd().add_jms().format(DateTime.parse(_businessController.resellerRequestedData['datetime']).toLocal())}",
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     color: Colors.orange,
